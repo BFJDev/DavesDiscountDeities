@@ -13,6 +13,8 @@ public class ObjectManager : MonoBehaviour
     public List<Cult> Cults;
     public List<Deity> Deities;
 
+    public UIManager UIManager;
+
 
     private List<string> LeaderNames = new List<string> { "John", "Lauren", "Ishan" };
 
@@ -54,6 +56,23 @@ public class ObjectManager : MonoBehaviour
     //Return the list of stored Deities
     public List<Deity> GetDeityList()
     {
+        Debug.Log("OB Manager knows of: " + Deities.Count + " deities");
         return Deities;
+    }
+
+    public void AddCult( Deity deity, Cult cult )
+    {
+        Debug.Log("cult is added to OM");
+        Debug.Log("Status #3: " + cult.GetLeaderName());
+        Cults.Add(cult);
+        deity.addCult(cult);
+        Customers.Remove(cult);
+
+        UIManager.OnCustomerButton();
+
+        for(  int i = 0; i < Deities.Count; i++ )
+        {
+            Debug.Log("Number of worshippers for " + Deities[i].GetName() + ": " + Deities[i].GetWorshippingCults().Count);
+        }
     }
 }

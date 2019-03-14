@@ -64,14 +64,51 @@ public class Deity
 
     public void addCult( Cult c )
     {
+        Debug.Log("Status #4: " + c.GetLeaderName());
+        if( worshippingCults == null )
+        {
+            worshippingCults = new List<Cult>();
+        }
         worshippingCults.Add(c);
+
+        CalculateWorshipReceived();
     }
 
     public bool removeCult( Cult c )
     {
        return worshippingCults.Remove(c);
     }
+
+    public List<Cult> GetWorshippingCults()
+    {
+        if (worshippingCults == null)
+        {
+            worshippingCults = new List<Cult>();
+        }
+        return worshippingCults;
+    }
+
+    private void CalculateWorshipReceived()
+    {
+        worshipAmtReceived = 0f;
+
+        foreach (Cult cult in worshippingCults)
+        {
+            if ( cult.GetWorshipMethod() == preferredWorshipMethod)
+            {
+                //   Debug.Log(currentDeity.GetWorshipReceived() + (((float)currentCustomer.GetSize()) * currentCustomer.GetFaith()));
+                worshipAmtReceived += (((float)cult.GetSize()) * cult.GetFaith());
+            }
+            else
+                worshipAmtReceived += (((float)cult.GetSize()) * cult.GetFaith() * 0.7f);
+        }
+
+       
+    }
+
 /*
+ * 
+ * 
     public void DailyUpdate()
     {
         int dailyWorship = 0;

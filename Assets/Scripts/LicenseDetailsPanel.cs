@@ -18,6 +18,16 @@ public class LicenseDetailsPanel : MonoBehaviour
 
     public Button SellLicenseButton;
 
+    public LicensePage LicensePage;
+    private LicensePage LicensePageScript;
+
+    void Start()
+    {
+        SellLicenseButton.onClick.AddListener(delegate { PopulateLicensePage(); });
+
+        LicensePageScript = (LicensePage)LicensePage.GetComponent(typeof(LicensePage));
+    }
+
     public void populateDetailsPanelByCustomer( Cult cult )
     {
         Debug.Log( "" + cult.GetWorshipMethod() );
@@ -48,5 +58,11 @@ public class LicenseDetailsPanel : MonoBehaviour
         else
             return currentDeity.GetWorshipReceived() + (((float)currentCustomer.GetSize()) * currentCustomer.GetFaith() * 0.7f);
 
+    }
+
+    public void PopulateLicensePage()
+    {
+        Debug.Log("Status: " + currentCustomer.GetLeaderName());
+        LicensePage.PopulateLicensePage(currentDeity, currentCustomer);
     }
 }

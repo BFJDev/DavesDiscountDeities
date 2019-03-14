@@ -24,7 +24,7 @@ public class CustomerDetailsPanel : MonoBehaviour
 
     void Start()
     {
-        Debug.Log(" Start called for Customer Management System");
+       // Debug.Log(" Start called for Customer Management System");
         //        button.onClick.AddListener(delegate { fillPanel(); });
 
         SellLicenseButton.onClick.AddListener(delegate { SellLicense(); });
