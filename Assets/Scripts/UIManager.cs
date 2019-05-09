@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -89,4 +90,27 @@ public class UIManager : MonoBehaviour
         LicensePage.SetActive(true);
     }
 
+    public void ProgressDay()
+    {
+        MainMenu.SetActive(false);
+        CultMenu.SetActive(false);
+        DeityMenu.SetActive(false);
+        CustomerMenu.SetActive(false);
+        LicenseMenu.SetActive(false);
+        LicensePage.SetActive(false);
+
+        StartCoroutine(Example());
+
+        MainMenu.SetActive(true);
+        CultMenu.SetActive(false);
+        DeityMenu.SetActive(false);
+        CustomerMenu.SetActive(false);
+        LicenseMenu.SetActive(false);
+        LicensePage.SetActive(false);
+    }
+
+    IEnumerator Example()
+    {
+        yield return new WaitForSeconds(5);
+    }
 }

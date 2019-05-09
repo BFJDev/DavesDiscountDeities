@@ -35,7 +35,6 @@ public class DeityDetailsPanel : MonoBehaviour
 
         SatisfactionSlider.value = CalculateSatisfaction();
         WorshipLevelSlider.value = CalculateWorshipLevel();
-        //   sellLicenseButton.GetComponent<SellLicense>();
     }
 
     /*

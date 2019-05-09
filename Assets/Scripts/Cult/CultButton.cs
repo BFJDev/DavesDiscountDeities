@@ -7,18 +7,16 @@ public class CultButton : MonoBehaviour
 {
     public Button button;
     public Text cultName;
-    public Text cultSize;
-    public Image deityIcon;
 
     private Cult cult;
     private CultScrollList cultScrollList;
+
+    public CultDetailsPanel DetailsPanel;
 
     public void Setup( Cult c, CultScrollList scrollList )
     {
         cult = c;
         cultName.text = cult.GetCultName();
-        deityIcon = cult.GetDeityIcon();
-        cultSize.text = cult.GetSize().ToString();
 
         cultScrollList = scrollList;
 
@@ -27,6 +25,6 @@ public class CultButton : MonoBehaviour
 
     public void fillPanel()
     {
-
+        DetailsPanel.populateDetailsPanel( cult );
     }
 }

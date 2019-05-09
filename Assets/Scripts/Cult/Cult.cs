@@ -14,12 +14,12 @@ public class Cult
     public int size;
     public float faith;
 
-    public Cult( string nm, WorshipMethod wmu, int s )
+    public Cult( string ln, WorshipMethod wmu, int s )
     {
-        cultName = nm;
+        leaderName = ln;
         worshipMethodUsed = wmu;
         size = s;
-        faith = 1.0F;
+        faith = 100.0f;
     }
 
     public Cult( string ln, string nm, WorshipMethod wmu, int s )
@@ -28,7 +28,7 @@ public class Cult
         cultName = nm;
         worshipMethodUsed = wmu;
         size = s;
-        faith = 1.0F;
+        faith = 100.0f;
     }
 
     public string GetLeaderName()
@@ -53,7 +53,7 @@ public class Cult
 
    public float GetFaith()
     {
-        return faith;
+        return faith/100f;
     }
 
     public Image GetDeityIcon()

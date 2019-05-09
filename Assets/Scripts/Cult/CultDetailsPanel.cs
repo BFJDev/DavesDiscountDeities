@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CultDetailsPanel : MonoBehaviour
 {
@@ -24,15 +25,13 @@ public class CultDetailsPanel : MonoBehaviour
     {
         CurrentSelectedCult = cult;
 
-        customerName.text = "Leader: " + cult.GetLeaderName();
-        customerSize.text = "Size:" + cult.GetSize();
-        preferredWorshipMethod.text = "Worship Method: " + cult.GetWorshipMethod();
+        LeaderName.text = cult.GetLeaderName();
+        CultSize.text = "" + cult.GetSize();
+        WorshipMethod.text = " " + cult.GetWorshipMethod();
 
-        //   sellLicenseButton.GetComponent<SellLicense>();
+        float faith = cult.GetFaith();
+
+        FaithSlider.value = faith;
     }
 
-    public void SellLicense()
-    {
-        ldpScript.populateDetailsPanelByCustomer(CurrentSelectedCult);
-    }
 }

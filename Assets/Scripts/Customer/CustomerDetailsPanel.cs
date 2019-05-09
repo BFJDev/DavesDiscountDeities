@@ -24,9 +24,6 @@ public class CustomerDetailsPanel : MonoBehaviour
 
     void Start()
     {
-       // Debug.Log(" Start called for Customer Management System");
-        //        button.onClick.AddListener(delegate { fillPanel(); });
-
         SellLicenseButton.onClick.AddListener(delegate { SellLicense(); });
 
         ldpScript = (LicenseDetailsPanel)ldpObject.GetComponent(typeof(LicenseDetailsPanel));
@@ -37,10 +34,9 @@ public class CustomerDetailsPanel : MonoBehaviour
         CurrentSelectedCult = cult;
 
         customerName.text = "Leader: " + cult.GetLeaderName();
-        customerSize.text = "Size:" + cult.GetSize();
+        customerSize.text = "Members: " + cult.GetSize();
         preferredWorshipMethod.text = "Worship Method: " + cult.GetWorshipMethod();
 
-     //   sellLicenseButton.GetComponent<SellLicense>();
     }
 
     public void SellLicense()
