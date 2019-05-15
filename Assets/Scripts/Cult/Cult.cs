@@ -8,7 +8,8 @@ using UnityEngine.UI;
 public class Cult
 {
     public string leaderName;
-    public string cultName;
+    public string cultName = "Church of Kthuhga";
+    public string DeityName = "Kthuhga";
     public WorshipMethod worshipMethodUsed;
     public Image deityIcon;
     public int size;
@@ -59,6 +60,11 @@ public class Cult
     public Image GetDeityIcon()
     {
         return deityIcon;
+    }
+
+    public string getDeityName()
+    {
+        return DeityName;
     }
 
 

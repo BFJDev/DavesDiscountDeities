@@ -25,6 +25,8 @@ public class CultDetailsPanel : MonoBehaviour
     {
         CurrentSelectedCult = cult;
 
+        DeityName.text = cult.getDeityName();
+
         LeaderName.text = cult.GetLeaderName();
         CultSize.text = "" + cult.GetSize();
         WorshipMethod.text = " " + cult.GetWorshipMethod();
